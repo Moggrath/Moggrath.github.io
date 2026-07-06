@@ -1,20 +1,17 @@
 const roles = [
   "IT Support Specialist",
-  "Help Desk Analyst",
-  "Data Analyst",
+  "Investor Relations Analyst",
+  "Data Engineer",
   "Desktop Support Technician",
-  "Identity & Access Troubleshooter",
-  "Field Deployment Technician",
-  "Tableau & Power BI Dashboard Builder",
+  "Tableau & Power BI Builder",
   "Python & SQL Problem Solver",
-  "A/V Systems Supporter",
 ];
 
 const typedRole = document.querySelector("#typed-role");
 const typedArticle = document.querySelector("#typed-article");
-const sideNav = document.querySelector(".side-nav");
+const navMenu = document.querySelector(".top-nav nav");
 const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelectorAll(".side-nav nav a");
+const navLinks = document.querySelectorAll(".top-nav nav a");
 let roleIndex = 0;
 let letterIndex = 0;
 let deleting = false;
@@ -45,14 +42,14 @@ function typeRole() {
 }
 
 menuToggle?.addEventListener("click", () => {
-  const isOpen = sideNav.classList.toggle("open");
+  const isOpen = navMenu.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
 });
 
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    sideNav.classList.remove("open");
+    navMenu.classList.remove("open");
     menuToggle?.setAttribute("aria-expanded", "false");
     menuToggle?.setAttribute("aria-label", "Open navigation");
   });
