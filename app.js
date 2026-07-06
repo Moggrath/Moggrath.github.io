@@ -1,38 +1,104 @@
-// Highlight the nav link matching the section currently in view
-const navLinks = document.querySelectorAll("nav a");
-const sections = document.querySelectorAll("section");
+const roles = [
+  "IT Support Specialist",
+  "Help Desk Analyst",
+  "Data Analyst",
+  "Desktop Support Technician",
+  "Identity & Access Troubleshooter",
+  "Field Deployment Technician",
+  "Tableau & Power BI Dashboard Builder",
+  "Python & SQL Problem Solver",
+  "A/V Systems Supporter",
+];
+
+const typedRole = document.querySelector("#typed-role");
+const typedArticle = document.querySelector("#typed-article");
+const sideNav = document.querySelector(".side-nav");
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelectorAll(".side-nav nav a");
+let roleIndex = 0;
+let letterIndex = 0;
+let deleting = false;
+
+function typeRole() {
+  if (!typedRole) return;
+
+  const currentRole = roles[roleIndex];
+  if (typedArticle) {
+    typedArticle.textContent = /^[aeiou]/i.test(currentRole) ? "An" : "A";
+  }
+  typedRole.textContent = currentRole.slice(0, letterIndex);
+
+  if (!deleting && letterIndex < currentRole.length) {
+    letterIndex += 1;
+  } else if (!deleting && letterIndex === currentRole.length) {
+    deleting = true;
+    setTimeout(typeRole, 1250);
+    return;
+  } else if (deleting && letterIndex > 0) {
+    letterIndex -= 1;
+  } else {
+    deleting = false;
+    roleIndex = (roleIndex + 1) % roles.length;
+  }
+
+  setTimeout(typeRole, deleting ? 34 : 58);
+}
+
+menuToggle?.addEventListener("click", () => {
+  const isOpen = sideNav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    sideNav.classList.remove("open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open navigation");
+  });
+});
 
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
-        navLinks.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
-        });
-      }
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+      });
     });
   },
-  { rootMargin: "-40% 0px -55% 0px" }
+  { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 },
 );
 
-sections.forEach((section) => observer.observe(section));
+document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
+typeRole();
 
-// Typing effect for the hero subtitle
-const heroSubtitle = document.querySelector("#hero p");
+/* ---------- Scroll reveal ---------- */
+// Tag additional blocks so they fade/slide in on scroll (project + skill cards are tagged in HTML).
+document
+  .querySelectorAll(
+    ".section-heading, .about-grid > *, .timeline article, .credential-grid article, .contact-cards a, .contact-section > div:first-of-type",
+  )
+  .forEach((el) => el.classList.add("reveal"));
 
-if (heroSubtitle) {
-  const fullText = heroSubtitle.textContent;
-  heroSubtitle.textContent = "";
-  let i = 0;
+// Stagger the cards within a grid so they "pop in" one after another.
+const stagger = (selector, step) => {
+  document.querySelectorAll(selector).forEach((el, i) => {
+    el.style.transitionDelay = `${Math.min(i * step, 360)}ms`;
+  });
+};
+stagger("#project-grid .reveal", 90);
+stagger(".skill-grid .reveal", 70);
 
-  function typeNext() {
-    if (i <= fullText.length) {
-      heroSubtitle.textContent = fullText.slice(0, i);
-      i++;
-      setTimeout(typeNext, 35);
-    }
-  }
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("in");
+      revealObserver.unobserve(entry.target);
+    });
+  },
+  { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+);
 
-  typeNext();
-}
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
