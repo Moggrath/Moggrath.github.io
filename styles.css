@@ -517,8 +517,7 @@ h3 {
 
 .project-card,
 .timeline article,
-.skill-grid div,
-.credential-grid article {
+.skill-grid div {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--paper);
@@ -628,15 +627,13 @@ code {
   font-weight: 800;
 }
 
-.skill-grid,
-.credential-grid {
+.skill-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
-.skill-grid div,
-.credential-grid article {
+.skill-grid div {
   padding: 22px;
 }
 
@@ -644,33 +641,144 @@ code {
   background: #0d1410;
 }
 
-.credential-grid {
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-}
-
-.cert-list {
-  display: grid;
-  gap: 10px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.cert-list li {
+/* Degree summary card */
+.degree-card {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   gap: 18px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--line);
+  margin-bottom: 40px;
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
 }
 
-.cert-list li:last-child {
-  border-bottom: 0;
+.degree-card .fact-icon {
+  margin-bottom: 0;
 }
 
-.cert-list strong {
+.degree-card h3 {
+  margin-bottom: 2px;
+}
+
+.degree-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.degree-card strong {
+  color: var(--sage);
+}
+
+/* Certificate carousel */
+.cert-carousel {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.cert-frame {
+  position: relative;
+  padding: clamp(18px, 3vw, 40px);
+  border: 1px solid rgba(111, 174, 140, 0.35);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(111, 174, 140, 0.12);
+}
+
+.cert-badge {
+  position: absolute;
+  top: -22px;
+  left: 32px;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  color: #0a0f0c;
+  background: var(--accent);
+  box-shadow: 0 0 20px rgba(111, 174, 140, 0.5);
+}
+
+.cert-badge .material-symbols-outlined {
+  font-size: 1.5rem;
+}
+
+.cert-frame img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 0 0 2px rgba(111, 174, 140, 0.2);
+  transition: opacity 250ms ease;
+}
+
+.cert-caption {
+  margin: 18px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.cert-caption strong {
+  color: var(--ink);
+}
+
+.cert-caption a {
   color: var(--accent);
-  white-space: nowrap;
+  font-weight: 700;
+}
+
+.cert-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cert-nav {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: color 200ms ease, border-color 200ms ease, background 200ms ease, transform 200ms ease;
+}
+
+.cert-nav:hover,
+.cert-nav:focus-visible {
+  color: var(--accent);
+  border-color: rgba(111, 174, 140, 0.5);
+  background: rgba(111, 174, 140, 0.1);
+  transform: translateY(-2px);
+}
+
+.cert-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.cert-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(148, 168, 155, 0.35);
+  cursor: pointer;
+  transition: width 300ms ease, background 300ms ease;
+}
+
+.cert-dots button:hover {
+  background: rgba(148, 168, 155, 0.6);
+}
+
+.cert-dots button.is-active {
+  width: 30px;
+  background: var(--accent);
 }
 
 .contact-section {
@@ -752,7 +860,6 @@ code {
   .intro,
   .about-grid,
   .project-grid,
-  .credential-grid,
   .contact-section {
     grid-template-columns: 1fr;
   }
@@ -784,9 +891,9 @@ code {
     grid-template-columns: 1fr;
   }
 
-  .cert-list li {
+  .degree-card {
+    align-items: flex-start;
     flex-direction: column;
-    gap: 4px;
   }
 
   .fact-cards {
@@ -848,12 +955,14 @@ code {
   color: #ffffff;
   font-size: 0.78rem;
   font-weight: 700;
-  transition: border-color 160ms ease, background 160ms ease;
+  transition: border-color 300ms ease, background 300ms ease, transform 300ms ease, box-shadow 300ms ease;
 }
 
 .skill-chips span:hover {
   border-color: rgba(111, 174, 140, 0.7);
   background: rgba(111, 174, 140, 0.18);
+  transform: translateY(-3px);
+  box-shadow: 0 0 26px rgba(111, 174, 140, 0.25);
 }
 
 /* ---------- Scroll reveal animation ---------- */
