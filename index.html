@@ -115,67 +115,72 @@
       </section>
 
       <section class="section-panel dark-section" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <p class="eyebrow">Projects</p>
-          <h2 id="projects-title">Hands-on labs and analytics with measurable results.</h2>
-          <p>Cloud infrastructure labs and data projects — Azure, Active Directory, Python, SQL, and BI tools.</p>
+        <div class="section-heading centered">
+          <p class="eyebrow">Featured Work</p>
+          <h2 id="projects-title">Projects that <span class="accent-phrase">solve real problems.</span></h2>
+          <p>Cloud infrastructure and data analytics — built end to end, documented step by step.</p>
         </div>
         <div class="project-grid" id="project-grid">
-          <article class="project-card reveal">
-            <img src="assets/banner-azure-ad.svg" alt="Circuit-board illustration of network traces flowing into an Azure cloud running Active Directory Domain Services">
-            <div class="project-body">
-              <div class="project-type">IT Infrastructure Lab | Azure · Active Directory</div>
-              <h3>Deploying &amp; Administering Active Directory in Azure</h3>
-              <p>A cloud build of an indie game company's network: a Windows Server 2025 domain controller and a Windows 10 workstation joined to a custom domain on Azure VMs — plus the day-to-day identity and access work an IT support specialist does inside Active Directory.</p>
-              <ul>
-                <li>Provisioned Azure VMs on a shared virtual network with static private IPs and custom DNS, then promoted Windows Server 2025 to a domain controller for a new forest.</li>
-                <li>Bulk-created employee accounts and the OU structure with a PowerShell script; gated network file shares behind security groups with share and NTFS permissions.</li>
-                <li>Simulated and resolved core help-desk tickets — account lockouts via Group Policy, password resets, disabling and re-enabling users — verifying each in the security event logs.</li>
-              </ul>
-              <div class="tool-row"><span>Microsoft Azure</span><span>Windows Server 2025</span><span>Active Directory</span><span>DNS</span><span>Group Policy</span><span>PowerShell</span><span>NTFS Permissions</span><span>RDP</span></div>
-              <div class="project-actions">
-                <a class="text-link" href="https://github.com/Moggrath/Azure-Active-Directory-project" target="_blank" rel="noreferrer">View Repository</a>
-              </div>
-              <p class="video-heading"><span class="material-symbols-outlined" aria-hidden="true">smart_display</span>Video walkthroughs</p>
-              <div class="video-links" aria-label="Active Directory lab video walkthroughs">
-                <a class="video-link" href="https://youtu.be/zobElpSG_H4" target="_blank" rel="noreferrer">
-                  <span class="material-symbols-outlined video-icon" aria-hidden="true">play_circle</span>
-                  <span class="video-copy">
-                    <strong>Phase 1: Infrastructure, Domain Controller &amp; AD Install</strong>
-                    <span>Provisioning the VMs and virtual network, assigning static IPs and DNS, and promoting the server to a domain controller for a new forest.</span>
-                  </span>
+          <article class="feature-card reveal">
+            <div class="feature-media">
+              <img src="assets/banner-azure-ad.svg" alt="Circuit-board illustration of network traces flowing into an Azure cloud running Active Directory Domain Services">
+              <div class="feature-overlay">
+                <a href="https://github.com/Moggrath/Azure-Active-Directory-project" target="_blank" rel="noreferrer" aria-label="View the repository on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                 </a>
-                <a class="video-link" href="https://youtu.be/uzPmsJ8zMvA" target="_blank" rel="noreferrer">
-                  <span class="material-symbols-outlined video-icon" aria-hidden="true">play_circle</span>
-                  <span class="video-copy">
-                    <strong>Phase 2: OUs, Bulk User Creation &amp; File Share Permissions</strong>
-                    <span>Joining the client to the domain, bulk-creating users with PowerShell, and gating shares behind security groups.</span>
-                  </span>
-                </a>
-                <a class="video-link" href="https://youtu.be/4c0M3s5zBvc" target="_blank" rel="noreferrer">
-                  <span class="material-symbols-outlined video-icon" aria-hidden="true">play_circle</span>
-                  <span class="video-copy">
-                    <strong>Phase 3: Account Administration — Lockouts, Resets &amp; Logs</strong>
-                    <span>Configuring lockout policy with Group Policy, resolving locked-out users, and reading the security event logs.</span>
-                  </span>
+                <a href="https://youtu.be/zobElpSG_H4" target="_blank" rel="noreferrer" aria-label="Watch the video walkthroughs">
+                  <span class="material-symbols-outlined" aria-hidden="true">play_arrow</span>
                 </a>
               </div>
             </div>
+            <div class="feature-body">
+              <h3>Deploying &amp; Administering Active Directory in Azure</h3>
+              <div class="ps-block">
+                <span class="ps-label">Problem</span>
+                <p>A growing game studio needs a real corporate network — central logins, shared drives, and access control — without owning a single physical server.</p>
+              </div>
+              <div class="ps-block solution">
+                <span class="ps-label alt">Solution</span>
+                <p>Built the environment on Azure VMs: a Windows Server 2025 domain controller and a Windows 10 client on a private virtual network, with PowerShell bulk user provisioning, Group Policy lockout rules, and security-group-gated file shares.</p>
+              </div>
+              <div class="ps-block">
+                <span class="ps-label">Result</span>
+                <p>A working <code>spiralspinners.com</code> domain, plus live reps of the tickets help desks handle daily — lockouts, password resets, and permission requests — documented in three video walkthroughs.</p>
+              </div>
+              <div class="feature-tags"><span>Microsoft Azure</span><span>Windows Server 2025</span><span>Active Directory</span><span>Group Policy</span><span>PowerShell</span><span>DNS</span><span>NTFS</span></div>
+              <div class="feature-foot">
+                <a href="https://github.com/Moggrath/Azure-Active-Directory-project" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  Code
+                </a>
+                <a href="https://youtu.be/zobElpSG_H4" target="_blank" rel="noreferrer"><span class="material-symbols-outlined" aria-hidden="true">play_circle</span>Phase 1</a>
+                <a href="https://youtu.be/uzPmsJ8zMvA" target="_blank" rel="noreferrer"><span class="material-symbols-outlined" aria-hidden="true">play_circle</span>Phase 2</a>
+                <a href="https://youtu.be/4c0M3s5zBvc" target="_blank" rel="noreferrer"><span class="material-symbols-outlined" aria-hidden="true">play_circle</span>Phase 3</a>
+              </div>
+            </div>
           </article>
-          <article class="project-card reveal">
-            <img src="assets/banner-airline-analysis.svg" alt="Paper airplane climbing along a rising analytics chart line through drifting clouds">
-            <div class="project-body">
-              <div class="project-type">Data Analytics | Team Collaboration</div>
+          <article class="feature-card reveal">
+            <div class="feature-media">
+              <img src="assets/banner-airline-analysis.svg" alt="Airliner climbing along a rising analytics chart line through drifting clouds">
+              <div class="feature-overlay">
+                <a href="https://github.com/Moggrath/In-depth-Analysis-of-Airline-Customer-Satisfaction---Collaboration-" target="_blank" rel="noreferrer" aria-label="View the repository on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="feature-body">
               <h3>Airline Customer Satisfaction Analysis</h3>
-              <p>End-to-end analysis of airline customer satisfaction data — from cleaning and exploration through machine learning models and executive-ready dashboards.</p>
-              <ul>
-                <li>Built a data pipeline in Python (Pandas, NumPy) with SQL and Excel for cleaning and exploration.</li>
-                <li>Trained logistic regression and decision tree models to predict customer satisfaction.</li>
-                <li>Delivered Tableau and Power Query dashboards to communicate the findings.</li>
-              </ul>
-              <div class="result-banner">
-                <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
-                <span><strong>Result:</strong> 78.6% prediction accuracy on customer satisfaction, with dashboards that turned the model output into clear takeaways.</span>
+              <div class="ps-block">
+                <span class="ps-label">Problem</span>
+                <p>An airline holds 130,000 customer surveys but no clear answer on which service upgrades would actually raise satisfaction.</p>
+              </div>
+              <div class="ps-block solution">
+                <span class="ps-label alt">Solution</span>
+                <p>Cleaned and explored the data with Python, then trained logistic regression and decision tree models to predict satisfaction and rank what drives it.</p>
+              </div>
+              <div class="ps-block">
+                <span class="ps-label">Result</span>
+                <p>78.6% prediction accuracy — tuned to 85% precision — and a clear investment priority: inflight entertainment, seat comfort, then online booking.</p>
               </div>
               <details class="writeup">
                 <summary><span class="material-symbols-outlined" aria-hidden="true">expand_more</span>Step-by-step write-up</summary>
@@ -224,9 +229,12 @@
                   </ul>
                 </div>
               </details>
-              <div class="tool-row"><span>Python</span><span>Pandas</span><span>NumPy</span><span>SQL</span><span>Excel</span><span>Tableau</span><span>Power Query</span></div>
-              <div class="project-actions">
-                <a class="text-link" href="https://github.com/Moggrath/In-depth-Analysis-of-Airline-Customer-Satisfaction---Collaboration-" target="_blank" rel="noreferrer">View Repository</a>
+              <div class="feature-tags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>SQL</span><span>Excel</span><span>Tableau</span><span>Power Query</span></div>
+              <div class="feature-foot">
+                <a href="https://github.com/Moggrath/In-depth-Analysis-of-Airline-Customer-Satisfaction---Collaboration-" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  Code
+                </a>
               </div>
             </div>
           </article>
@@ -238,42 +246,56 @@
           <p class="eyebrow">Experience</p>
           <h2 id="experience-title">Troubleshooting experience backed by data integrity & user satisfaction.</h2>
         </div>
-        <div class="timeline">
-          <article>
-            <span>April 2025 - October 2025 | Remote</span>
-            <h3>Investor Relations Analyst, Okapi Partners</h3>
-            <ul>
-              <li>Logged shareholder outreach in Microsoft Access with record-consistency checks, producing campaign tracking summaries and reports.</li>
-              <li>Refined outreach scripts and messaging with supervisors via feedback loops, as well as improved database logging consistencies pertaining to shareholder information.</li>
-              <li>Conducted 25+ calls and support sessions per hour explaining corporate actions and voting options to shareholders and stakeholders.</li>
-            </ul>
-          </article>
-          <article>
-            <span>September 2023 - November 2024 | New York, NY</span>
-            <h3>Inflight Crew Trainee, JetBlue Airways</h3>
-            <ul>
-              <li>Troubleshot Fly-Fi connectivity across 500+ flights, improving customer satisfaction survey results by 34%.</li>
-            </ul>
-          </article>
-          <article>
-            <span>January 2021 - June 2021 | New York, NY</span>
-            <h3>IT Support Specialist, All Covered Inc.</h3>
-            <ul>
-              <li>Provided Tier 1 on-site support across 12 Brooklyn polling sites.</li>
-              <li>Deployed 16+ iPads per site, verified configurations, and paired devices to printers.</li>
-              <li>Validated Wi-Fi and cloud connectivity, ran test ballot prints, monitored printer toner and paper levels, performed nightly device syncs and reboots, and escalated hardware swaps to vendor management through the support hotline.</li>
-            </ul>
-          </article>
-          <article>
-            <span>August 2019 - January 2021 | New York, NY</span>
-            <h3>IT Support Assistant, NYIT Academic Technology</h3>
-            <ul>
-              <li>Resolved SSO and access issues across Okta, Google Workspace, and Outlook.</li>
-              <li>Led the NYIT CYBEARs esports lab buildout — 10 gaming workstations.</li>
-              <li>Operated Zoom-enhanced smart classrooms with touch-panel A/V control, projectors & large displays, document cameras, and sound-balanced speaker/microphone systems</li>
-              <li>Maintained inventory for 10 mice, 10 keyboards, and workstation components, created a basic knowledge base, and served as the primary point of contact for room-related issues involving networking, PC troubleshooting, login credentials, and hardware improvements.</li>
-            </ul>
-          </article>
+        <div class="tab-wrap reveal">
+          <div class="tab-list">
+            <div class="tab-glider" aria-hidden="true"></div>
+            <button class="tab-btn on" type="button" data-t="0">Okapi Partners<small>2025</small></button>
+            <button class="tab-btn" type="button" data-t="1">JetBlue Airways<small>2023 – 2024</small></button>
+            <button class="tab-btn" type="button" data-t="2">All Covered Inc.<small>2021</small></button>
+            <button class="tab-btn" type="button" data-t="3">NYIT<small>2019 – 2021</small></button>
+          </div>
+          <div class="tab-panes">
+            <div class="tab-pane on">
+              <div class="toprow"><h3>Investor Relations Analyst</h3><span class="range">April 2025 – October 2025</span></div>
+              <div class="loc">Okapi Partners · Remote</div>
+              <ul>
+                <li>Logged shareholder outreach in Microsoft Access with record-consistency checks, producing campaign tracking summaries and reports.</li>
+                <li>Refined outreach scripts and messaging with supervisors via feedback loops, as well as improved database logging consistencies pertaining to shareholder information.</li>
+                <li>Conducted 25+ calls and support sessions per hour explaining corporate actions and voting options to shareholders and stakeholders.</li>
+              </ul>
+              <div class="pills"><span>Microsoft Access</span><span>Reporting</span><span>Records Management</span><span>Client Support</span></div>
+            </div>
+            <div class="tab-pane">
+              <div class="toprow"><h3>Inflight Crew Trainee</h3><span class="range">Sept 2023 – Nov 2024</span></div>
+              <div class="loc">JetBlue Airways · New York, NY</div>
+              <ul>
+                <li>Troubleshot Fly-Fi connectivity across 500+ flights, improving customer satisfaction survey results by 34%.</li>
+                <li>Provided step-by-step passenger support for captive portal redirects, browser cache and cookie issues, VPN interference, Apple auto-join settings, Wi-Fi configuration, and device connectivity.</li>
+              </ul>
+              <div class="pills"><span>Wi-Fi Troubleshooting</span><span>Mobile Devices</span><span>Customer Service</span></div>
+            </div>
+            <div class="tab-pane">
+              <div class="toprow"><h3>IT Support Specialist</h3><span class="range">January 2021 – June 2021</span></div>
+              <div class="loc">All Covered Inc. · New York, NY</div>
+              <ul>
+                <li>Provided Tier 1 on-site support across 12 Brooklyn polling sites.</li>
+                <li>Deployed 16+ iPads per site, verified configurations, and paired devices to printers.</li>
+                <li>Validated Wi-Fi and cloud connectivity, ran test ballot prints, monitored printer toner and paper levels, performed nightly device syncs and reboots, and escalated hardware swaps to vendor management through the support hotline.</li>
+              </ul>
+              <div class="pills"><span>Device Deployment</span><span>Tier 1 Support</span><span>iPadOS</span><span>Printer Support</span></div>
+            </div>
+            <div class="tab-pane">
+              <div class="toprow"><h3>IT Support Assistant</h3><span class="range">August 2019 – January 2021</span></div>
+              <div class="loc">NYIT Academic Technology · New York, NY</div>
+              <ul>
+                <li>Resolved SSO and access issues across Okta, Google Workspace, and Outlook.</li>
+                <li>Led the NYIT CYBEARs esports lab buildout — 10 gaming workstations.</li>
+                <li>Operated Zoom-enhanced smart classrooms with touch-panel A/V control, projectors &amp; large displays, document cameras, and sound-balanced speaker/microphone systems</li>
+                <li>Maintained inventory for 10 mice, 10 keyboards, and workstation components, created a basic knowledge base, and served as the primary point of contact for room-related issues involving networking, PC troubleshooting, login credentials, and hardware improvements.</li>
+              </ul>
+              <div class="pills"><span>Okta / SSO</span><span>A/V &amp; Zoom Rooms</span><span>PC Building</span><span>Asset Management</span></div>
+            </div>
+          </div>
         </div>
       </section>
 

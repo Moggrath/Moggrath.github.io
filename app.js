@@ -74,7 +74,7 @@ typeRole();
 // Tag additional blocks so they fade/slide in on scroll (project + skill cards are tagged in HTML).
 document
   .querySelectorAll(
-    ".section-heading, .about-grid > *, .timeline article, .contact-cards a, .contact-section > div:first-of-type",
+    ".section-heading, .about-grid > *, .contact-cards a, .contact-section > div:first-of-type",
   )
   .forEach((el) => el.classList.add("reveal"));
 
@@ -99,6 +99,102 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+/* ---------- Matrix digital rain ---------- */
+const rain = document.createElement("canvas");
+rain.className = "matrix-rain";
+rain.setAttribute("aria-hidden", "true");
+document.body.appendChild(rain);
+
+const rainCtx = rain.getContext("2d");
+const rainGlyphs = "01";
+const rainCell = 15;
+const rainColGap = 32;
+let rainCols = 0;
+let rainDrops = [];
+let rainSpeeds = [];
+
+function sizeRain() {
+  rain.width = window.innerWidth;
+  rain.height = window.innerHeight;
+  rainCols = Math.ceil(rain.width / rainColGap);
+  rainDrops = Array.from({ length: rainCols }, () => Math.random() * (-2 * rain.height / rainCell));
+  rainSpeeds = Array.from({ length: rainCols }, () => 0.25 + Math.random() * 0.4);
+}
+sizeRain();
+window.addEventListener("resize", sizeRain);
+
+setInterval(() => {
+  // fade previous frame while keeping the canvas transparent
+  rainCtx.globalCompositeOperation = "destination-out";
+  rainCtx.fillStyle = "rgba(0, 0, 0, 0.09)";
+  rainCtx.fillRect(0, 0, rain.width, rain.height);
+  rainCtx.globalCompositeOperation = "source-over";
+
+  rainCtx.font = `${rainCell}px Consolas, monospace`;
+  for (let i = 0; i < rainCols; i++) {
+    const y = rainDrops[i] * rainCell;
+    if (y > 0) {
+      const glyph = rainGlyphs[(Math.random() * rainGlyphs.length) | 0];
+      // occasional bright "head" glyph, otherwise dim fern
+      rainCtx.fillStyle = Math.random() > 0.92 ? "rgba(160, 230, 190, 0.85)" : "rgba(111, 174, 140, 0.5)";
+      rainCtx.fillText(glyph, i * rainColGap, y);
+    }
+    rainDrops[i] += rainSpeeds[i];
+    if (y > rain.height + 40) {
+      rainDrops[i] = Math.random() * -60;
+      rainSpeeds[i] = 0.25 + Math.random() * 0.4;
+    }
+  }
+}, 66);
+
+/* ---------- Floating background motes ---------- */
+const motes = document.createElement("div");
+motes.className = "bg-motes";
+motes.setAttribute("aria-hidden", "true");
+for (let i = 0; i < 22; i++) {
+  const mote = document.createElement("span");
+  mote.style.left = `${Math.random() * 100}%`;
+  mote.style.top = `${8 + Math.random() * 88}%`;
+  mote.style.setProperty("--s", `${(2 + Math.random() * 3).toFixed(1)}px`);
+  mote.style.setProperty("--d", `${(14 + Math.random() * 18).toFixed(1)}s`);
+  mote.style.setProperty("--del", `${(-Math.random() * 30).toFixed(1)}s`);
+  mote.style.setProperty("--x", `${(Math.random() * 44 - 22).toFixed(0)}px`);
+  mote.style.setProperty("--o", (0.18 + Math.random() * 0.3).toFixed(2));
+  motes.appendChild(mote);
+}
+document.body.appendChild(motes);
+
+/* ---------- Experience company console ---------- */
+const tabBtns = document.querySelectorAll(".tab-btn");
+const tabPanes = document.querySelectorAll(".tab-pane");
+const tabGlider = document.querySelector(".tab-glider");
+
+function moveGlider(btn) {
+  if (!tabGlider || !btn) return;
+  tabGlider.style.transform = `translateY(${btn.offsetTop}px)`;
+  tabGlider.style.height = `${btn.offsetHeight}px`;
+}
+
+if (tabBtns.length) {
+  moveGlider(document.querySelector(".tab-btn.on"));
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      tabBtns.forEach((b) => b.classList.toggle("on", b === btn));
+      tabPanes.forEach((pane, i) => {
+        pane.classList.remove("on");
+        if (i === Number(btn.dataset.t)) {
+          void pane.offsetWidth; // restart the entry animation
+          pane.classList.add("on");
+        }
+      });
+      moveGlider(btn);
+    });
+  });
+
+  window.addEventListener("resize", () => moveGlider(document.querySelector(".tab-btn.on")));
+}
 
 /* ---------- Certificate carousel ---------- */
 const certs = [
