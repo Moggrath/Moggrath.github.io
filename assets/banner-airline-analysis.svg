@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" role="img" aria-label="Commercial airliner climbing along a rising analytics chart line through drifting clouds">
+  <style>
+    .trail {
+      stroke-dasharray: 18 240;
+      animation: trail 6.5s linear infinite;
+    }
+    @keyframes trail { to { stroke-dashoffset: -516; } }
+    .bob { animation: bob 4.5s ease-in-out infinite; }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+    .cloud-a { animation: drift 44s linear infinite; }
+    .cloud-b { animation: drift 58s linear infinite; animation-delay: -30s; }
+    .cloud-c { animation: drift 36s linear infinite; animation-delay: -12s; }
+    @keyframes drift {
+      from { transform: translateX(0); }
+      to { transform: translateX(-1700px); }
+    }
+    .blip { animation: blip 3.2s ease-in-out infinite; }
+    @keyframes blip {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 1; }
+    }
+  </style>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1712"/>
+      <stop offset="0.55" stop-color="#0b1210"/>
+      <stop offset="1" stop-color="#090e0b"/>
+    </linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6fae8c" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#6fae8c" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fin" x1="0" y1="1" x2="0.6" y2="0">
+      <stop offset="0" stop-color="#4d8a6a"/>
+      <stop offset="1" stop-color="#6fd6a3"/>
+    </linearGradient>
+    <linearGradient id="contrail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a8c9b5" stop-opacity="0"/>
+      <stop offset="1" stop-color="#a8c9b5" stop-opacity="0.55"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="400" fill="url(#sky)"/>
+  <circle cx="1050" cy="90" r="240" fill="rgba(111,174,140,0.08)"/>
+  <circle cx="170" cy="330" r="190" fill="rgba(168,201,181,0.05)"/>
+
+  <!-- horizontal chart gridlines + y ticks -->
+  <g stroke="rgba(140,190,160,0.13)" stroke-width="1.5" stroke-dasharray="4 9">
+    <line x1="70" y1="140" x2="1215" y2="140"/>
+    <line x1="70" y1="220" x2="1215" y2="220"/>
+    <line x1="70" y1="300" x2="1215" y2="300"/>
+  </g>
+  <line x1="70" y1="356" x2="1215" y2="356" stroke="rgba(140,190,160,0.22)" stroke-width="1.5"/>
+  <g font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5f7a6b">
+    <text x="30" y="145">80%</text>
+    <text x="30" y="225">60%</text>
+    <text x="30" y="305">40%</text>
+  </g>
+
+  <!-- background bar chart -->
+  <g fill="rgba(111,174,140,0.11)">
+    <rect x="120" y="312" width="36" height="44" rx="4"/>
+    <rect x="212" y="296" width="36" height="60" rx="4"/>
+    <rect x="304" y="318" width="36" height="38" rx="4"/>
+    <rect x="396" y="284" width="36" height="72" rx="4"/>
+    <rect x="488" y="298" width="36" height="58" rx="4"/>
+    <rect x="580" y="270" width="36" height="86" rx="4"/>
+    <rect x="672" y="286" width="36" height="70" rx="4"/>
+    <rect x="764" y="258" width="36" height="98" rx="4"/>
+    <rect x="856" y="272" width="36" height="84" rx="4"/>
+    <rect x="948" y="244" width="36" height="112" rx="4"/>
+    <rect x="1040" y="260" width="36" height="96" rx="4"/>
+    <rect x="1132" y="230" width="36" height="126" rx="4"/>
+  </g>
+
+  <!-- drifting clouds -->
+  <g fill="rgba(233,240,234,0.09)">
+    <g class="cloud-a">
+      <path d="M1310 96 a26 26 0 0 1 25-24 a33 33 0 0 1 63-7 a24 24 0 0 1 33 22 a20 20 0 0 1-4 40 h-96 a22 22 0 0 1-21-31 Z"/>
+    </g>
+    <g class="cloud-b" fill="rgba(233,240,234,0.06)">
+      <path d="M1560 200 a32 32 0 0 1 31-30 a41 41 0 0 1 78-9 a30 30 0 0 1 41 27 a25 25 0 0 1-5 50 h-119 a27 27 0 0 1-26-38 Z"/>
+    </g>
+    <g class="cloud-c" fill="rgba(233,240,234,0.07)">
+      <path d="M1420 58 a20 20 0 0 1 19-18 a25 25 0 0 1 48-5 a18 18 0 0 1 25 16 a15 15 0 0 1-3 30 h-73 a17 17 0 0 1-16-23 Z"/>
+    </g>
+  </g>
+
+  <!-- area under the line -->
+  <path d="M84 332 C 220 322, 268 268, 386 274 S 560 226, 656 208 S 850 158, 990 126 L 990 356 L 84 356 Z" fill="url(#area)"/>
+
+  <!-- main rising line -->
+  <path d="M84 332 C 220 322, 268 268, 386 274 S 560 226, 656 208 S 850 158, 990 126"
+    fill="none" stroke="#6fae8c" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- flowing pulse along the line -->
+  <path class="trail" d="M84 332 C 220 322, 268 268, 386 274 S 560 226, 656 208 S 850 158, 990 126"
+    fill="none" stroke="#6fd6a3" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- data points -->
+  <g fill="#0c1712" stroke="#a8c9b5" stroke-width="2.5">
+    <circle cx="84" cy="332" r="6"/>
+    <circle cx="386" cy="274" r="6"/>
+    <circle cx="656" cy="208" r="6"/>
+    <circle cx="866" cy="156" r="6"/>
+  </g>
+  <circle class="blip" cx="656" cy="208" r="12" fill="none" stroke="#6fd6a3" stroke-width="2"/>
+
+  <!-- airliner climbing at the head of the line -->
+  <g class="bob">
+    <!-- contrails -->
+    <g transform="translate(1054, 104) rotate(-14)">
+      <rect x="-236" y="-6" width="130" height="3.6" rx="1.8" fill="url(#contrail)"/>
+      <rect x="-210" y="16" width="104" height="3.6" rx="1.8" fill="url(#contrail)" opacity="0.8"/>
+    </g>
+    <g transform="translate(1054, 104) rotate(-14)" filter="url(#soft)">
+      <!-- horizontal stabilizer -->
+      <path d="M-46 0 L-84 15 L-62 15 C-56 9, -50 4, -46 0 Z" fill="#8fb39d"/>
+      <!-- tail fin -->
+      <path d="M-38 -11 L-62 -50 L-44 -50 C-38 -36, -31 -21, -25 -11 Z" fill="url(#fin)"/>
+      <!-- fuselage -->
+      <path d="M84 1 C 76 -8, 62 -12, 44 -12 L -40 -12 C -58 -12, -70 -8, -78 -2 C -80 2, -76 6, -66 7 L 40 12 C 62 12, 76 9, 84 1 Z" fill="#e9f0ea"/>
+      <!-- belly shading -->
+      <path d="M84 1 C 76 9, 62 12, 40 12 L -66 7 C -50 9, 20 10, 50 8 C 68 6, 78 4, 84 1 Z" fill="#b9d2c2"/>
+      <!-- cockpit windshield -->
+      <path d="M60 -11 C 68 -9, 74 -6, 78 -2 L 68 -1 C 63 -5, 60 -8, 60 -11 Z" fill="#12241a"/>
+      <!-- window strip -->
+      <rect x="-34" y="-7" width="86" height="3" rx="1.5" fill="rgba(18,36,28,0.4)"/>
+      <!-- main wing swept back -->
+      <path d="M20 -1 L-30 34 L-4 34 C 6 21, 14 9, 24 -1 Z" fill="#8fb39d"/>
+      <!-- engine pod -->
+      <rect x="-10" y="17" width="32" height="15" rx="7.5" fill="#dfe9e2"/>
+      <ellipse cx="21" cy="24.5" rx="3.2" ry="6.4" fill="#12241a"/>
+    </g>
+    <!-- annotation chip -->
+    <g>
+      <rect x="1096" y="38" width="94" height="36" rx="9" fill="rgba(16,26,19,0.92)" stroke="#6fd6a3" stroke-width="2"/>
+      <text x="1143" y="62" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="18" font-weight="bold" fill="#8fe0b8">78.6%</text>
+      <line x1="1106" y1="74" x2="1088" y2="86" stroke="#6fd6a3" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- x-axis label -->
+  <text x="1146" y="384" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5f7a6b">flights →</text>
+</svg>

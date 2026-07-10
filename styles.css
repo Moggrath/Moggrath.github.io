@@ -515,6 +515,70 @@ h3 {
   color: #ffffff;
 }
 
+/* Expandable step-by-step write-up inside project cards */
+.writeup {
+  margin-top: 18px;
+  border: 1px solid rgba(140, 190, 160, 0.2);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.writeup summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  color: var(--accent);
+  font-weight: 800;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.writeup summary::-webkit-details-marker {
+  display: none;
+}
+
+.writeup summary .material-symbols-outlined {
+  transition: transform 200ms ease;
+}
+
+.writeup[open] summary .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+.writeup-body {
+  padding: 4px 18px 18px;
+}
+
+.writeup-body h4 {
+  margin: 18px 0 6px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.writeup-body ul,
+.writeup-body ol {
+  margin: 0;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.writeup-body li {
+  margin-bottom: 8px;
+}
+
+.writeup-body li strong {
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.writeup-body p {
+  color: rgba(255, 255, 255, 0.74);
+}
+
 .project-card,
 .timeline article,
 .skill-grid div {
@@ -609,6 +673,78 @@ code {
 
 .project-actions .text-link {
   margin-top: 0;
+}
+
+/* Video walkthrough links inside project cards */
+.video-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 0;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.video-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.video-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-height: 76px;
+  padding: 14px 16px;
+  border: 1px solid rgba(111, 174, 140, 0.42);
+  border-radius: 8px;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(111, 174, 140, 0.2), rgba(255, 255, 255, 0.06));
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.video-link:hover,
+.video-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(111, 174, 140, 0.78);
+  background: linear-gradient(135deg, rgba(111, 174, 140, 0.3), rgba(255, 255, 255, 0.08));
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.video-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--accent);
+  background: rgba(10, 15, 12, 0.5);
+  font-size: 1.35rem;
+}
+
+.video-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.video-copy strong {
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.video-copy span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .timeline {

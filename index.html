@@ -117,11 +117,53 @@
       <section class="section-panel dark-section" id="projects" aria-labelledby="projects-title">
         <div class="section-heading">
           <p class="eyebrow">Projects</p>
-          <h2 id="projects-title">Analytics work with measurable results.</h2>
-          <p>Data pipelines, prediction models, and dashboards built with Python, SQL, and BI tools.</p>
+          <h2 id="projects-title">Hands-on labs and analytics with measurable results.</h2>
+          <p>Cloud infrastructure labs and data projects — Azure, Active Directory, Python, SQL, and BI tools.</p>
         </div>
         <div class="project-grid" id="project-grid">
-          <article class="project-card wide-card reveal">
+          <article class="project-card reveal">
+            <img src="assets/banner-azure-ad.svg" alt="Circuit-board illustration of network traces flowing into an Azure cloud running Active Directory Domain Services">
+            <div class="project-body">
+              <div class="project-type">IT Infrastructure Lab | Azure · Active Directory</div>
+              <h3>Deploying &amp; Administering Active Directory in Azure</h3>
+              <p>A cloud build of an indie game company's network: a Windows Server 2025 domain controller and a Windows 10 workstation joined to a custom domain on Azure VMs — plus the day-to-day identity and access work an IT support specialist does inside Active Directory.</p>
+              <ul>
+                <li>Provisioned Azure VMs on a shared virtual network with static private IPs and custom DNS, then promoted Windows Server 2025 to a domain controller for a new forest.</li>
+                <li>Bulk-created employee accounts and the OU structure with a PowerShell script; gated network file shares behind security groups with share and NTFS permissions.</li>
+                <li>Simulated and resolved core help-desk tickets — account lockouts via Group Policy, password resets, disabling and re-enabling users — verifying each in the security event logs.</li>
+              </ul>
+              <div class="tool-row"><span>Microsoft Azure</span><span>Windows Server 2025</span><span>Active Directory</span><span>DNS</span><span>Group Policy</span><span>PowerShell</span><span>NTFS Permissions</span><span>RDP</span></div>
+              <div class="project-actions">
+                <a class="text-link" href="https://github.com/Moggrath/Azure-Active-Directory-project" target="_blank" rel="noreferrer">View Repository</a>
+              </div>
+              <p class="video-heading"><span class="material-symbols-outlined" aria-hidden="true">smart_display</span>Video walkthroughs</p>
+              <div class="video-links" aria-label="Active Directory lab video walkthroughs">
+                <a class="video-link" href="https://youtu.be/zobElpSG_H4" target="_blank" rel="noreferrer">
+                  <span class="material-symbols-outlined video-icon" aria-hidden="true">play_circle</span>
+                  <span class="video-copy">
+                    <strong>Phase 1: Infrastructure, Domain Controller &amp; AD Install</strong>
+                    <span>Provisioning the VMs and virtual network, assigning static IPs and DNS, and promoting the server to a domain controller for a new forest.</span>
+                  </span>
+                </a>
+                <a class="video-link" href="https://youtu.be/uzPmsJ8zMvA" target="_blank" rel="noreferrer">
+                  <span class="material-symbols-outlined video-icon" aria-hidden="true">play_circle</span>
+                  <span class="video-copy">
+                    <strong>Phase 2: OUs, Bulk User Creation &amp; File Share Permissions</strong>
+                    <span>Joining the client to the domain, bulk-creating users with PowerShell, and gating shares behind security groups.</span>
+                  </span>
+                </a>
+                <a class="video-link" href="https://youtu.be/4c0M3s5zBvc" target="_blank" rel="noreferrer">
+                  <span class="material-symbols-outlined video-icon" aria-hidden="true">play_circle</span>
+                  <span class="video-copy">
+                    <strong>Phase 3: Account Administration — Lockouts, Resets &amp; Logs</strong>
+                    <span>Configuring lockout policy with Group Policy, resolving locked-out users, and reading the security event logs.</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <img src="assets/banner-airline-analysis.svg" alt="Paper airplane climbing along a rising analytics chart line through drifting clouds">
             <div class="project-body">
               <div class="project-type">Data Analytics | Team Collaboration</div>
               <h3>Airline Customer Satisfaction Analysis</h3>
@@ -135,6 +177,53 @@
                 <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
                 <span><strong>Result:</strong> 78.6% prediction accuracy on customer satisfaction, with dashboards that turned the model output into clear takeaways.</span>
               </div>
+              <details class="writeup">
+                <summary><span class="material-symbols-outlined" aria-hidden="true">expand_more</span>Step-by-step write-up</summary>
+                <div class="writeup-body">
+                  <h4>The Dataset</h4>
+                  <p>Nearly 130,000 airline passenger surveys covering who the customers are, what kind of flight they took, and how they rated 23 aspects of the experience. The goal: figure out what actually makes a customer satisfied — and build a model that can predict it.</p>
+
+                  <h4>Step 1 — Getting the Data Ready</h4>
+                  <ul>
+                    <li>Loaded the raw survey data with Python and reviewed its structure to understand what each column held and where problems might hide.</li>
+                    <li>Found gaps in the arrival-delay records and filled them with sensible middle-of-the-road values so no surveys had to be thrown away.</li>
+                    <li>Confirmed customers split roughly 50/50 between satisfied and dissatisfied — a healthy balance for fair model training.</li>
+                  </ul>
+
+                  <h4>Step 2 — Exploring the Data</h4>
+                  <ul>
+                    <li>Charted every feature to build a picture of the customer base: mostly <strong>returning customers</strong>, mostly <strong>business travel</strong>, with seat comfort and food rated decently but not exceptionally.</li>
+                    <li>Compared groups against satisfaction: male passengers were more likely to be dissatisfied, and business travelers were happier than people flying for personal reasons.</li>
+                    <li>Measured how ratings move together and found a strong link between <strong>easy online booking and a smooth boarding experience</strong> — customers who struggled with one usually struggled with the other.</li>
+                  </ul>
+
+                  <h4>Step 3 — Preparing for Prediction</h4>
+                  <ul>
+                    <li>Translated text answers (gender, customer type, travel class) into a numeric format a model can learn from.</li>
+                    <li>Set aside a portion of the data the model never sees during training, so its accuracy could be tested honestly on "new" customers.</li>
+                    <li>Built reusable scoring tools to grade every model the same way and show exactly where predictions were right or wrong.</li>
+                  </ul>
+
+                  <h4>Step 4 — First Model: Logistic Regression</h4>
+                  <ul>
+                    <li>The first model predicted satisfaction correctly <strong>78.6% of the time</strong>, and performed just as well on customers it had never seen — a sign it learned real patterns, not coincidences.</li>
+                    <li>Dug into its mistakes from a business angle: the costliest error is marking an unhappy customer as happy, because those customers quietly leave and their issues never get fixed.</li>
+                    <li>Adjusted how confident the model must be before calling someone "satisfied," cutting those costly misses — <strong>85% of its "satisfied" calls were now right</strong>.</li>
+                  </ul>
+
+                  <h4>Step 5 — Second Model: Decision Tree</h4>
+                  <ul>
+                    <li>Built a decision-tree model — one that works like a flowchart of yes/no questions — and systematically tested different settings to find its best-performing version.</li>
+                    <li>The tree revealed what drives satisfaction most, in order: <strong>inflight entertainment</strong> first, then <strong>seat comfort</strong>, then <strong>ease of online booking</strong>.</li>
+                  </ul>
+
+                  <h4>Step 6 — What the Airline Should Do</h4>
+                  <ul>
+                    <li>Recommended the decision tree as the final model — accurate, and easy for non-technical stakeholders to read and act on.</li>
+                    <li>Advised investing in inflight entertainment and seat comfort first, creating premium bundles for short-haul business flyers, and adding real-time feedback channels to catch unhappy customers early.</li>
+                  </ul>
+                </div>
+              </details>
               <div class="tool-row"><span>Python</span><span>Pandas</span><span>NumPy</span><span>SQL</span><span>Excel</span><span>Tableau</span><span>Power Query</span></div>
               <div class="project-actions">
                 <a class="text-link" href="https://github.com/Moggrath/In-depth-Analysis-of-Airline-Customer-Satisfaction---Collaboration-" target="_blank" rel="noreferrer">View Repository</a>
